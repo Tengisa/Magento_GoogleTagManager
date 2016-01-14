@@ -11,7 +11,7 @@
 <config>
 	<modules>
 		<CVM_GoogleTagManager>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</CVM_GoogleTagManager>
 	</modules>
 	<global>
@@ -90,7 +90,7 @@
 	<phpunit>
 		<suite>
 			<modules>
-				<CVM_GoogleTagManager />
+				<CVM_GoogleTagManager/>
 			</modules>
 		</suite>
 	</phpunit>
