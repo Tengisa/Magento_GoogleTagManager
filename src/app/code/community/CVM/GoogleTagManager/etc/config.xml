@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<CVM_GoogleTagManager>
+			<version>1.0.0</version>
+		</CVM_GoogleTagManager>
+	</modules>
+	<phpunit>
+		<suite>
+			<modules>
+				<CVM_GoogleTagManager />
+			</modules>
+		</suite>
+	</phpunit>
+</config>

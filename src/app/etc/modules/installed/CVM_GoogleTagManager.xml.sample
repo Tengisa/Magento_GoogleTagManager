@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<CVM_GoogleTagManager>
+			<active>true</active>
+			<codePool>community</codePool>
+		</CVM_GoogleTagManager>
+	</modules>
+</config>

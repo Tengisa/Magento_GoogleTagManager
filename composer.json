@@ -1,0 +1,61 @@
+{
+    "name": "cvm/googletagmanager",
+    "description": "Google Tag Manager extension for Magento",
+    "type": "magento-module",
+    "version": "1.0.0",
+    "module": {
+        "package": "CVM",
+        "name": "GoogleTagManager",
+        "description": "Google Tag Manager extension for Magento",
+        "jquery": "true",
+        "less": "true"
+    },
+    "site": {
+        "name": "CVM_GoogleTagManager",
+        "email": "info@tengisa.co.za",
+        "telephone": "011-123-4567",
+        "country": "ZA",
+        "address": "",
+        "hours": "08:00am to 05:00pm",
+        "vat": "",
+        "skin": "default",
+        "domain": "tengisa.co.za"
+    },
+    "keywords":["magento","module"],
+    "repositories":
+    [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        },
+        {
+            "type": "composer",
+            "url": "http://pack-tengisa.cloudapp.net"
+        }
+    ],
+    "require":
+    {
+        "php": ">=5.4.0",
+        "magento-hackathon/magento-composer-installer": "~3.0",
+        "ecomdev/ecomdev_phpunit": "~0.3",
+        "mikey179/vfsStream": "~1.5",
+        "tengisa/theme": "~1.0",
+        "tengisa/revision": "~1.2",
+        "tengisa/data-fixture": "~1.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "magento-root-dir": "magento",
+        "modman-root-dir": ".modman"
+    },
+    "scripts": {
+        "post-update-cmd":
+        [
+            "bash bin/modman repair",
+            "rm -rf magento/var/cache/",
+            "bin/mage-ci phpunit magento --colors"
+        ]
+    }
+}

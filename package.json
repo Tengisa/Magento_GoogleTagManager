@@ -1,0 +1,28 @@
+{
+    "name": "googletagmanager",
+    "private": true,
+    "engines":
+    {
+        "node": ">= 0.10.0"
+    },
+    "dependencies":
+    {
+        "grunt": "~0.4.2",
+        "grunt-shell": "*",
+        "grunt-karma": "*",
+        "karma-coverage": "*",
+        "karma-jasmine-html-reporter": "*",
+        "karma-spec-reporter": "*",
+        "karma-chrome-launcher": "*",
+        "karma-firefox-launcher": "*",
+        "karma-phantomjs-launcher": "*",
+        "karma-jasmine": "*",
+        "karma-junit-reporter": "*",
+        "karma-ng-html2js-preprocessor": "*"
+    },
+    "devDependencies":
+    {
+        "grunt-contrib-less": "~0.8.3",
+        "grunt-contrib-watch": "~0.5.3"
+    }
+}
