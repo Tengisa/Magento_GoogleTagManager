@@ -2,7 +2,7 @@
     "name": "cvm/googletagmanager",
     "description": "Google Tag Manager extension for Magento",
     "type": "magento-module",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "module": {
         "package": "CVM",
         "name": "GoogleTagManager",
