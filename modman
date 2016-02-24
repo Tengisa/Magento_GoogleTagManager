@@ -9,7 +9,6 @@ src/app/code/community/CVM/GoogleTagManager/Test/Config/Module.php   app/code/co
 src/app/design/frontend/base/default/template/googletagmanager/gtm.phtml   app/design/frontend/base/default/template/googletagmanager/gtm.phtml
 src/app/design/frontend/base/default/layout/googletagmanager.xml   app/design/frontend/base/default/layout/googletagmanager.xml
 src/app/etc/modules/CVM_GoogleTagManager.xml   app/etc/modules/CVM_GoogleTagManager.xml
-src/app/etc/modules/installed/CVM_GoogleTagManager.xml.sample   app/etc/modules/installed/CVM_GoogleTagManager.xml.sample
 src/skin/frontend/base/default/css/googletagmanager.css   skin/frontend/base/default/css/googletagmanager.css
 src/skin/frontend/base/default/less/googletagmanager.less   skin/frontend/base/default/less/googletagmanager.less
 src/skin/frontend/base/default/js/googletagmanager.js   skin/frontend/base/default/js/googletagmanager.js
