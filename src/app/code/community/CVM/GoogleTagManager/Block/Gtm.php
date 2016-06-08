@@ -66,6 +66,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	protected function _getTransactionData()
 	{
 		$data = array();
+		$data['ecommerce'] = array();
+		$data['ecommerce']['purchase'] = array();
+		//$data['ecommerce']['actionField'] = array();
+
 
 		$orderIds = $this->getOrderIds();
 		if (empty($orderIds) || !is_array($orderIds)) return array();
@@ -78,28 +82,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		foreach ($collection as $order) {
 			if ($i == 0) {
 				// Build all fields for first order.
-				$data = array(
-					'event' => 'transaction',
-					'transactionId' => $order->getIncrementId(),
-					'transactionDate' => date("Y-m-d"),
-					'transactionType' => Mage::helper('googletagmanager')->getTransactionType(),
-					'transactionAffiliation' => Mage::helper('googletagmanager')->getTransactionAffiliation(),
-					'transactionTotal' => round($order->getBaseGrandTotal(),2),
-					'transactionShipping' => round($order->getBaseShippingAmount(),2),
-					'transactionTax' => round($order->getBaseTaxAmount(),2),
-					'transactionPaymentType' => $order->getPayment()->getMethodInstance()->getTitle(),
-					'transactionCurrency' => $order->getOrderCurrencyCode(),
-					'transactionShippingMethod' => $order->getShippingCarrier()->getCarrierCode(),
-					'transactionPromoCode' => $order->getCouponCode(),
-					'transactionProducts' => array()
+                $data['ecommerce']['purchase']['actionField'] = array(
+					'id' => $order->getIncrementId(),
+					'affiliation' => Mage::helper('googletagmanager')->getTransactionAffiliation(),
+					'revenue' => round($order->getBaseGrandTotal(),2),
+					'shipping' => round($order->getBaseShippingAmount(),2),
+					'tax' => round($order->getBaseTaxAmount(),2),
+					'currencyCode' => $order->getOrderCurrencyCode(),
+					'coupon' => $order->getCouponCode(),
+					'products' => array()
 				);
 			} else {
 				// For subsequent orders, append to order ID, totals and shipping method.
-				$data['transactionId'] .= '|'.$order->getIncrementId();
-				$data['transactionTotal'] += $order->getBaseGrandTotal();
-				$data['transactionShipping'] += $order->getBaseShippingAmount();
-				$data['transactionTax'] += $order->getBaseTaxAmount();
-				$data['transactionShippingMethod'] .= '|'.$order->getShippingCarrier()->getCarrierCode();
+                $data['ecommerce']['purchase']['actionField']['id'] .= '|'.$order->getIncrementId();
+                $data['ecommerce']['purchase']['actionField']['revenue'] += $order->getBaseGrandTotal();
+                $data['ecommerce']['purchase']['actionField']['shipping'] += $order->getBaseShippingAmount();
+                $data['ecommerce']['purchase']['actionField']['tax'] += $order->getBaseTaxAmount();
 			}
 
 			// Build products array.
@@ -114,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					// Build all fields the first time we encounter this item.
 					$products[$item->getSku()] = array(
 						'name' => $this->jsQuoteEscape(Mage::helper('core')->escapeHtml($item->getName())),
-						'sku' => $this->jsQuoteEscape(Mage::helper('core')->escapeHtml($item->getSku())),
+						'id' => $this->jsQuoteEscape(Mage::helper('core')->escapeHtml($item->getSku())),
 						'category' => implode('|',$categories),
 						'price' => (double)number_format($item->getBasePrice(),2,'.',''),
 						'quantity' => (int)$item->getQtyOrdered()
@@ -130,7 +128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 		// Push products into main data array.
 		foreach ($products as $product) {
-			$data['transactionProducts'][] = $product;
+            $data['ecommerce']['purchase']['products'][] = $product;
 		}
 
 		// Trim empty fields from the final output.

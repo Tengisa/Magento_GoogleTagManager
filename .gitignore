@@ -15,3 +15,6 @@
 
 # bower
 /bower_components
+
+#ide files
+.idea
