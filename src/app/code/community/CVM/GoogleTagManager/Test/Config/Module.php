@@ -4,6 +4,6 @@ class CVM_GoogleTagManager_Test_Config_Module extends EcomDev_PHPUnit_Test_Case_
     public function testModuleParams()
     {
         $this->assertModuleCodePool("community");
-        $this->assertModuleVersion("1.0.5");
+        $this->assertModuleVersion("1.0.6");
     }
 }
