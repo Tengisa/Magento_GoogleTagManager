@@ -89,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					'transactionTax' => round($order->getBaseTaxAmount(),2),
 					'transactionPaymentType' => $order->getPayment()->getMethodInstance()->getTitle(),
 					'transactionCurrency' => $order->getOrderCurrencyCode(),
-					'transactionShippingMethod' => $order->getShippingCarrier()->getCarrierCode(),
+					'transactionShippingMethod' => (is_object($order->getShippingCarrier()) ? $order->getShippingCarrier()->getCarrierCode() : ''), //Temp fix
 					'transactionPromoCode' => $order->getCouponCode(),
 					'transactionProducts' => array()
 				);
