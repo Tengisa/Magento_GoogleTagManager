@@ -2,7 +2,7 @@
     "name": "cvm/googletagmanager",
     "description": "Google Tag Manager extension for Magento",
     "type": "magento-module",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "module": {
         "package": "CVM",
         "name": "GoogleTagManager",
@@ -40,7 +40,7 @@
         "magento-hackathon/magento-composer-installer": "~3.0",
         "ecomdev/ecomdev_phpunit": "~0.3",
         "mikey179/vfsStream": "~1.5",
-        "tengisa/theme": "~1.0",
+        "tengisa/theme": "~1.0 || ~2.0",
         "tengisa/revision": "~1.2",
         "tengisa/data-fixture": "~1.0"
     },
