@@ -1,0 +1,40 @@
+#!/bin/bash
+
+MODULE="CVM_GoogleTagManager"
+
+# Generate modman file links
+echo "" > modman
+for file in $(find src/app -type f)
+do
+    if [ $(basename $file) != ".DS_Store" ]
+    then
+        echo $file " " ${file#src/} >> modman
+    fi
+done
+for file in $(find src/skin -type f)
+do
+    if [ $(basename $file) != ".DS_Store" ]
+    then
+        echo $file " " ${file#src/} >> modman
+    fi
+done
+for file in $(find src/spec -type f)
+do
+    if [ $(basename $file) != ".DS_Store" ]
+    then
+        echo $file " " ${file#src/} >> modman
+    fi
+done
+for lib in $(ls src/lib)
+do
+    if [ $(basename $file) != ".DS_Store" ]
+    then
+        echo $file " " ${file#src/} >> modman
+    fi
+done
+echo "@shell cp \$PROJECT/app/etc/modules/installed/$MODULE.xml.sample \$PROJECT/app/etc/modules/$MODULE.xml" >> modman
+
+mkdir magento/database
+cp -rf database/. magento/database
+bin/mage-ci install-module magento $(pwd)
+bin/mage-ci phpunit magento --colors
