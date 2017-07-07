@@ -1,0 +1,32 @@
+<?php
+
+$config = $this->getRemarketingConfig();
+$is_active = $config['active'];
+$conversion_id = $config['conversionid'];
+$product = $this->getProduct();
+
+if(is_object($product) && $product->getId() && $is_active && $conversion_id)
+{
+    $product = $this->getProduct();
+    $product_price = '';
+    $product_code = $product->getData('sku');
+    $page_type = 'product';
+    ?>
+    <script type="text/javascript">
+        var google_tag_params = {ecomm_prodid: '<?= $product_code ?>', ecomm_pagetype: '<?= $page_type ?>', ecomm_totalvalue: '<?= $product_price ?>'};
+    </script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = <?= $conversion_id ?>;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/<?= $conversion_id ?>/?guid=ON&script=0"/>
+        </div>
+    </noscript>
+<?php } ?>

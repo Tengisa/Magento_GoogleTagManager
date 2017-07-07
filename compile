@@ -37,4 +37,4 @@ echo "@shell cp \$PROJECT/app/etc/modules/installed/$MODULE.xml.sample \$PROJECT
 mkdir magento/database
 cp -rf database/. magento/database
 bin/mage-ci install-module magento $(pwd)
-bin/mage-ci phpunit magento --colors
+#bin/mage-ci phpunit magento --colors
