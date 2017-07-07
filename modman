@@ -1,16 +1,18 @@
 
-src/app/code/community/CVM/GoogleTagManager/Model/Observer.php   app/code/community/CVM/GoogleTagManager/Model/Observer.php
+src/app/code/community/CVM/GoogleTagManager/Block/Gtm.php   app/code/community/CVM/GoogleTagManager/Block/Gtm.php
+src/app/code/community/CVM/GoogleTagManager/Block/Remarketing.php   app/code/community/CVM/GoogleTagManager/Block/Remarketing.php
+src/app/code/community/CVM/GoogleTagManager/etc/adminhtml.xml   app/code/community/CVM/GoogleTagManager/etc/adminhtml.xml
 src/app/code/community/CVM/GoogleTagManager/etc/config.xml   app/code/community/CVM/GoogleTagManager/etc/config.xml
 src/app/code/community/CVM/GoogleTagManager/etc/system.xml   app/code/community/CVM/GoogleTagManager/etc/system.xml
-src/app/code/community/CVM/GoogleTagManager/etc/adminhtml.xml   app/code/community/CVM/GoogleTagManager/etc/adminhtml.xml
-src/app/code/community/CVM/GoogleTagManager/Block/Gtm.php   app/code/community/CVM/GoogleTagManager/Block/Gtm.php
 src/app/code/community/CVM/GoogleTagManager/Helper/Data.php   app/code/community/CVM/GoogleTagManager/Helper/Data.php
+src/app/code/community/CVM/GoogleTagManager/Model/Observer.php   app/code/community/CVM/GoogleTagManager/Model/Observer.php
 src/app/code/community/CVM/GoogleTagManager/Test/Config/Module.php   app/code/community/CVM/GoogleTagManager/Test/Config/Module.php
-src/app/design/frontend/base/default/template/googletagmanager/gtm.phtml   app/design/frontend/base/default/template/googletagmanager/gtm.phtml
 src/app/design/frontend/base/default/layout/googletagmanager.xml   app/design/frontend/base/default/layout/googletagmanager.xml
+src/app/design/frontend/base/default/template/googletagmanager/gtm.phtml   app/design/frontend/base/default/template/googletagmanager/gtm.phtml
+src/app/design/frontend/base/default/template/googletagmanager/remarketing.phtml   app/design/frontend/base/default/template/googletagmanager/remarketing.phtml
 src/app/etc/modules/CVM_GoogleTagManager.xml   app/etc/modules/CVM_GoogleTagManager.xml
 src/skin/frontend/base/default/css/googletagmanager.css   skin/frontend/base/default/css/googletagmanager.css
-src/skin/frontend/base/default/less/googletagmanager.less   skin/frontend/base/default/less/googletagmanager.less
 src/skin/frontend/base/default/js/googletagmanager.js   skin/frontend/base/default/js/googletagmanager.js
+src/skin/frontend/base/default/less/googletagmanager.less   skin/frontend/base/default/less/googletagmanager.less
 src/spec/GoogleTagManagerSpec.js   spec/GoogleTagManagerSpec.js
 @shell cp $PROJECT/app/etc/modules/installed/CVM_GoogleTagManager.xml.sample $PROJECT/app/etc/modules/CVM_GoogleTagManager.xml
