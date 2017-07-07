@@ -89,7 +89,7 @@
 					</fields>
 				</googletagmanager>
 				<googleremarketing translate="label">
-					<label>Google Re-marketing</label>
+					<label>Google Remarketing</label>
 					<frontend_type>text</frontend_type>
 					<sort_order>15</sort_order>
 					<show_in_default>1</show_in_default>
@@ -108,6 +108,7 @@
 						<conversionid translate="label">
 							<label>Conversion ID#</label>
 							<frontend_type>text</frontend_type>
+							<frontend_class>required-entry</frontend_class>
 							<sort_order>20</sort_order>
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
